@@ -1,0 +1,10 @@
+services:
+  rsyncd:
+    container_name: rsyncd
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    volumes:
+      - /mnt/storage/mirror:/mirror:ro
+    restart: "unless-stopped"
